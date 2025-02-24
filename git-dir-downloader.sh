@@ -11,7 +11,7 @@ tempDir=$(mktemp -d)
 
 git clone --filter=blob:none --no-checkout "$repoUrl" "$tempDir"
 
-cd "$tempDir" || exit 1
+cd "$tempDir"
 
 git sparse-checkout init --cone
 
@@ -25,5 +25,6 @@ else
   exit 1
 fi
 
-cd "$OLDPWD" || exit 1
+cd "$OLDPWD"
+
 rm -rf "$tempDir"
